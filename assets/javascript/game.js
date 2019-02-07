@@ -1,46 +1,74 @@
 $(document).ready(function () {
 
+    // var obj = {
+    //     'row1' : {
+    //         'key1' : 'input1',
+    //         'key2' : 'input2'
+    //     },
+    //     'row2' : {
+    //         'key3' : 'input3',
+    //         'key4' : 'input4'
+    //     }
+    // };
+    // obj.row1.key1 == 'input1';
+    // obj.row1.key2 == 'input2';
+    // obj.row2.key1 == 'input3';
+    // obj.row2.key2 == 'input4';
 
-var characters = {
-    obi: {
-        name: "Obi Wan Kenobi",
-        imageURL: "assets/images/ObiWanKenobi.jpeg",
-    },
-    luke: {
+    var obi = {
+        name : "Obi Wan Kenobi",
+        healthPoints : 120,
+        attackPower : 8,
+        counterAttackPower : 6,
+    };
+    var luke = {
         name: "Luke Skywalker",
-        imageURL: "assets/images/LukeSkywalker.jpeg",
+        healthPoints: 100,
+        attackPower: 3,
+        counterAttackPower: 5,
 
-    },
-    sidious: {
+    };
+    var sidious = {
         name: "Darth Sidious",
-        imageURL: "assets/images/DarthSidious.jpeg",
-    },
-    maul: {
+        healthPoints: 150,
+        attackPower: 9,
+        counterAttackPower: 20,
+    };
+    var maul = {
         name: "Darth Maul",
-        imageURL: "assets/images/DarthMaul.jpeg",
-    },
+        healthPoints: 180,
+        attackPower: 6,
+        counterAttackPower: 25,
+    };
 
 
-}
+    var playerChar = " ";
+    var defenderChar = " ";
 
-
-var playerCharacter;
-var enemies;
-var defender;
-
+    $(".obiHealth").html(obi["healthPoints"]);
+    $(".lukeHealth").html(luke["healthPoints"]);
+    $(".sidiousHealth").html(sidious["healthPoints"]);
+    $(".maulHealth").html(maul["healthPoints"]);
 
     $(".availChar").click(function () {
-        playerCharacter = ($(this).attr("value"))
-        $(this).appendTo("#playerCharacter").removeClass("btn availChar").addClass( "player" );
-
-        $('#players').children().appendTo("#enemies").removeClass( "availChar" ).addClass( "enemy" );
+        $(this).appendTo("#playerCharacter").removeClass("btn availChar").addClass("player");
+        playerChar = $(this).attr("value");
+        $('#players').children().appendTo("#enemies").removeClass("availChar").addClass("enemy");
+        alert(playerChar);
     })
 
     $(document).on('click', '.enemy', function () {
-        defender = ($(this).attr("value"))
-        $(this).appendTo("#defender").removeClass("btn").addClass( "defender" );
+        $(this).appendTo("#defender").removeClass("btn").addClass("defender");
+        defenderChar = $(this).attr("value");
     })
 
-    
+
+
+
+
+
+
+
+
 
 })
