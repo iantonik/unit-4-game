@@ -54,7 +54,6 @@ $(document).ready(function () {
         $(this).appendTo("#playerCharacter").removeClass("btn availChar").addClass("player");
         playerChar = $(this).attr("value");
         $('#players').children().appendTo("#enemies").removeClass("availChar").addClass("enemy");
-        alert(playerChar);
     })
 
     $(document).on('click', '.enemy', function () {
