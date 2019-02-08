@@ -1,0 +1,21 @@
+button img{
+    width: 100px;
+    height: 120px;
+    padding-top: 5px;
+}
+
+button{
+    width: 140px;
+    margin: 0px;
+}
+
+label{
+    font-size: larger;
+}
+.row{
+    height: 200px;
+}
+
+.players{
+    text-align: center;
+}

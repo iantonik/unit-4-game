@@ -21,21 +21,45 @@
     <header>
         <h1>Star Wars RPG</h1>
     </header>
-    <main class="container">
+    <main class="container" id='setup'>
+        <!-- <div class="row">
+            <button class="obi character" value="obi"> </button>
+            <button class="luke character" value="luke"><img src="assets/images/LukeSkywalker.jpeg"  ></button>
+            <button class="sidious character" value="sidious"><img src="assets/images/DarthSidious.jpeg"></button>
+            <button class="maul character" value="maul"><img src="assets/images/DarthMaul.jpeg"></button>
+        </div> -->
+        <div class="row">
+            <div class="col-md-5 players">
+                <label>Your Character</label>
+            </div>
+            <div class="col-md-2">
+                <button class="attack">Attack</button>
+            </div>
+            <div class="col-md-5 players">
+                <label>Defender</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Game Progress</label>
 
-        <button class="obi character" value="obi"></button>
-        <br>
-        <br>
-        <button class="luke character" value="luke"></button>
-        <br>
-        <br>
-        <button class="sidious character" value="sidious"></button>
-        <br>
-        <br>
-        <button class="maul character" value="maul"></button>
-        <br>
-        <br>
-        <button class="attack">Attack</button>
+            </div>
+            <div class="col-md-9">
+                <div calss="row">
+                    <p id="ap">attack power info....</p>
+                </div>
+                <div class="row">
+                    <p id="cap">counter attack info....</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <label>Enemies available to attack</label>
+        </div>
+
+
 
 
     </main>
@@ -43,7 +67,7 @@
 
     </footer>
 
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
 </body>
