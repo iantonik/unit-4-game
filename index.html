@@ -8,70 +8,44 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script src="assets/javascript/game.js"></script>z -->
-    <title>Document</title>
+
+
+
+    <title>Star Wars RPG</title>
 </head>
 
 <body>
+
     <header>
-        <h1>Star Wars RPG!</h1>
+        <h1>Star Wars RPG</h1>
     </header>
+    <main class="container">
 
-    <main>
-        <div class="container">
-            <div class="row" id="players">
-                <div class="btn char availChar" id="obi" value="obi">
-                    <label>Obi Wan Kenobi</label>
-                    <img src="assets/images/ObiWanKenobi.jpeg" alt="Obi Wan Kenobi">
-                    <p class="score obiHealth"></p>
-                </div>
-
-                <div class="btn char availChar" id="luke" value="luke">
-                    <label>Luke Skywalker</label>
-                    <img src="assets/images/LukeSkywalker.jpeg" alt="Luke Skywalker">
-                    <p class="score lukeHealth"></p>
-                </div>
-
-                <div class="btn char availChar" id="sidious" value="sidious">
-                    <label>Darth Sidious</label>
-                    <img src="assets/images/DarthSidious.jpeg" alt="Darth Sidious">
-                    <p class="score sidiousHealth"></p>
-                </div>
-
-                <div class="btn char availChar" id="maul" value="maul">
-                    <label>Darth Maul</label>
-                    <img src="assets/images/DarthMaul.jpeg" alt="Darth Maul">
-                    <p class="score maulHealth"></p>
-                </div>
-                
-            </div>
-
-            <div class="row board" id="playerCharacter">
-                <h3 class="rowTitle col-md-2">Your Character</h3>
-            </div>
-
-
-            <div class="row board" id="enemies">
-                <h3 class="rowTitle col-md-2">Enemies available to play</h3>
-            </div>
-
-            <div class="row board" id="defender">
-                <h3 class="rowTitle col-md-2">Defender</h3>
-            </div>
-            <div class="">
-                    <h3>Game Stats</h3>
-                    <button type="button" class="btn btn-outline-danger">Attack</button>
-                </div>
-        </div>
+        <button class="obi character" value="obi"></button>
+        <br>
+        <br>
+        <button class="luke character" value="luke"></button>
+        <br>
+        <br>
+        <button class="sidious character" value="sidious"></button>
+        <br>
+        <br>
+        <button class="maul character" value="maul"></button>
+        <br>
+        <br>
+        <button class="attack">Attack</button>
 
 
     </main>
+    <footer>
+
+    </footer>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
-
-
 </body>
 
 </html>
