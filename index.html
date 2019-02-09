@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -22,41 +22,28 @@
         <h1>Star Wars RPG</h1>
     </header>
     <main class="container" id='setup'>
-        <!-- <div class="row">
-            <button class="obi character" value="obi"> </button>
-            <button class="luke character" value="luke"><img src="assets/images/LukeSkywalker.jpeg"  ></button>
-            <button class="sidious character" value="sidious"><img src="assets/images/DarthSidious.jpeg"></button>
-            <button class="maul character" value="maul"><img src="assets/images/DarthMaul.jpeg"></button>
-        </div> -->
-        <div class="row">
-            <div class="col-md-5 players">
-                <label>Your Character</label>
-            </div>
-            <div class="col-md-2">
-                <button class="attack">Attack</button>
-            </div>
-            <div class="col-md-5 players">
-                <label>Defender</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <label>Game Progress</label>
+
+        <div class="row activePlay">
+            <div class="col-md-4 active">
+                <div id='player'>Your Character</div>
 
             </div>
-            <div class="col-md-9">
+            <div class="col-md-4 active">
+                <button class="attack">Attack</button>
                 <div calss="row">
-                    <p id="ap">attack power info....</p>
+                    <p id="ap"></p>
                 </div>
                 <div class="row">
-                    <p id="cap">counter attack info....</p>
+                    <p id="cap"></p>
                 </div>
-
             </div>
-
+            <div class="col-md-4 active">
+                <div id="defender">Defender</div>
+            </div>
         </div>
-        <div class="row">
-            <label>Enemies available to attack</label>
+
+        <div class="row activePlay">
+            <label id='enemy'>Enemies available to attack</label>
         </div>
 
 
