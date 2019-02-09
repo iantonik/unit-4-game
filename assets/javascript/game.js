@@ -58,50 +58,25 @@ var powerIncrement;
 
 
 
-
-// function pageSetup() {
-//     $(".obi").html(characters.obi["name"] + "   " + characters.obi["hp"]);
-//     $(".luke").html(characters.luke["name"] + "   " + characters.luke["hp"]);
-//     $(".sidious").html(characters.sidious["name"] + "   " + characters.sidious["hp"]);
-//     $(".maul").html(characters.maul["name"] + "   " + characters.maul["hp"]);
-// }
-//pageSetup();
-
 $(document).on('click', '.character', function(){
 
     if (!player) {
         player = $(this).attr("value");
         $(this).detach().appendTo('#player')
         powerIncrement = characters[player].ap;
-        $(this).attr("disabled", "disabled"); //disable button, can't change player.
-        console.log("Player: "+player)
+        $(this).attr("disabled", "disabled").css("background-color", "#4b923a"); //disable button, can't change player.
+    
+     
     } else if (!defender) {
         defender = $(this).val();
         $(this).detach().appendTo('#defender')
-        $(this).attr("disabled", "disabled"); //disable button, can't change defender after selection.
+        $(this).attr("disabled", "disabled").css("background-color", "#b3201a"); //disable button, can't change defender after selection.
         populateEnemy();
         maintainEnemy();
-        console.log("Defender: "+defender)
-        console.log("Enemy List: " +enemy)
+
 
     }
 })
-
-// $(".character").click(function () {
-//     if (!player) {
-//         player = $(this).attr("value");
-//         powerIncrement = characters[player].ap;
-//         console.log("this is the player: " + player);
-//         $(this).attr("disabled", "disabled"); //disable button, can't change player.
-//     } else if (!defender) {
-//         defender = $(this).val();
-//         console.log("this is the defender: " + defender)
-//         $(this).attr("disabled", "disabled"); //disable button, can't change defender after selection.
-//         populateEnemy();
-//         maintainEnemy();
-
-//     }
-// })
 
 function populateEnemy() {
     for (var key in characters) {
@@ -114,7 +89,7 @@ function maintainEnemy() {
         return e != defender;
     })
     enemy.forEach(element => {
-        $("."+element).detach().appendTo('#enemy')
+        $("."+element).detach().appendTo('#enemy').css("background-color", "#81887f")
     });
 }
 
@@ -140,10 +115,13 @@ $(".attack").click(function () {
 
 function gameStats() {
     if (characters[player].hp <=0 && characters[defender].ph<=0 ){
-        alert("It's a draw!");
+        $("#ap").toggle().html("It's a draw!")
+        $("#cap").hide(); 
     }
     else if (characters[player].hp <= 0){
-        alert("You lose! Game Over")
+        $("#ap").show().html("You lost! Game Over!")
+        $("#cap").hide();
+        $(".attack").attr("disabled", "disabled");
     }
     else if (characters[defender].hp <= 0) {
         $("."+defender).remove();

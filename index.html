@@ -19,31 +19,31 @@
 <body>
 
     <header>
-        <h1>Star Wars RPG</h1>
+        <nav class="navbar navbar-dark bg-primary">
+            <span class="navbar-brand mb-0 h1">Star Wars RPG</span>
+        </nav>
     </header>
     <main class="container" id='setup'>
 
         <div class="row activePlay">
-            <div class="col-md-4 active">
-                <div id='player'>Your Character</div>
+            <div class="col active text-center" id='player'>
+                <div>Your Character</div>
 
             </div>
-            <div class="col-md-4 active">
+            <div class="col active text-center">
                 <button class="attack">Attack</button>
-                <div calss="row">
-                    <p id="ap"></p>
-                </div>
-                <div class="row">
-                    <p id="cap"></p>
-                </div>
+                <p id="ap"></p>
+                <p id="cap"></p>
             </div>
-            <div class="col-md-4 active">
-                <div id="defender">Defender</div>
+            <div class="col active text-center" id="defender">
+                <div>Defender</div>
             </div>
         </div>
 
-        <div class="row activePlay">
-            <label id='enemy'>Enemies available to attack</label>
+        <div class="row">
+            <div class="col text-center" id='enemy'>
+                <div>Enemies available to attack</div>
+            </div>
         </div>
 
 

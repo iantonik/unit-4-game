@@ -7,6 +7,7 @@ button img{
 button{
     width: 160px;
     margin: 20px;
+    font-size: medium;
 }
 
 
@@ -16,6 +17,25 @@ button{
     padding-bottom: 2px;
 }
 
-.active{
+/* .active{
     border: 2px solid gray;
+} */
+
+body{
+    background-image: url("../images/wallpaper.png");
+    color: black; 
+    font-size: x-large;
+}
+
+.container{
+    background-color: #ffffff74;
+    border: 1px solid #dddddd;
+    /* max-width: 920px; */
+    margin: 0px auto;
+    margin-top: 80px;
+    /* padding: 19px; */
+}
+#enemy{
+    border-top: 2px solid #ffffff;
+
 }
