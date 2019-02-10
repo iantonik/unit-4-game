@@ -46,9 +46,10 @@ var characters = {
 var player;
 var defender;
 var enemy = [];
-var powerIncrement;
 var playerHP;
+var playerAP;
 var defenderHP;
+
 
 function loadCharacters() {
     for (key in characters) {
@@ -56,7 +57,6 @@ function loadCharacters() {
             'class': `${key}  character`,
             'value': key,
             'html': `<img src="${characters[key].src}"/><p>${characters[key].name}</p><p id=${key}>${characters[key].hp}</p>`,
-
         }).prependTo("#setup")
     }
 }
@@ -78,51 +78,50 @@ function maintainEnemy() {
 }
 
 function inProgressStats() {
-    $("#" + defender).html(characters[defender].hp);
-    $("#" + player).html(characters[player].hp);
-    $("#note1").html(`You've attacked with ${characters[player].ap} attack points. <br> ${characters[defender].name} responded with ${characters[defender].cap} counter attack points.`);
+    $("#" + defender).html(defenderHP);
+    $("#" + player).html(playerHP);
+    $("#note1").show().html(`You've attacked with ${playerAP} attack points. <br> ${characters[defender].name} responded with ${characters[defender].cap} counter attack points.`);
 }
 
 function gameStats() {
-    if (characters[player].hp <= 0 && characters[defender].hp <= 0) {
-        $("#note1").show().html("It's a draw!")
+    if (playerHP <= 0 && defenderHP <= 0) {
+        $("#note1").html("It's a draw!")
         $(".attack").hide();
         $(".restart").show();
     }
-    else if (characters[player].hp <= 0) {
-        $("#note1").show().html("You lost! Game Over!")
+    else if (playerHP <= 0) {
+        $("#note1").html("You lost! Game Over!")
         $(".attack").hide();
         $(".restart").show();
     }
-    else if (characters[defender].hp <= 0) {
+    else if (defenderHP <= 0) {
         $("." + defender).remove();
-        $("#note1").toggle();
-        // delete characters[defender];
-        defender = "";
+        $("#note1").hide();
+        defender="";
 
         if (!enemy.length) {
-            $("#note1").toggle().html("You Win!")
+            $("#note1").show().html("You Win!")
             $(".attack").hide();
             $(".restart").show();
         } else {
-            $("#note1").toggle().html("You won this round! <br> Select next defender to continue playing.")
+            $("#note1").show().html("You won this round! <br> Select next defender to continue playing.")
         }
     }
 }
 
 function gameReset() {
     for (var key in characters) {
-        $("."+key).remove();
+        $("." + key).remove();
     };
-    player = "";
-    defender = "";
+    player="";
+    defender="";
     enemy = [];
-    powerIncrement=0;
+    playerHP=0;
+    playerAP=0;
+    defenderHP=0;
     loadCharacters()
-    $(".attack").show();
     $(".restart").hide();
-    $("#note1").hide();
-
+    $("#note1").show().html("Pick a player and a defender.")
 }
 
 $(document).ready(function () {
@@ -131,26 +130,30 @@ $(document).ready(function () {
         if (!player) {
             player = $(this).attr("value");
             $(this).detach().appendTo('#player')
-            powerIncrement = characters[player].ap;
-            $(this).attr("disabled", "disabled").css("background-color", "#4b923a"); //disable button, can't change player.
+            playerHP = characters[player].hp;
+            playerAP = characters[player].ap;
+            $(this).attr("disabled", "disabled").css("background-color", "#4b923a");
             populateEnemy();
             maintainEnemy();
 
         } else if (!defender) {
             defender = $(this).val();
+            defenderHP = characters[defender].hp;
             $(this).detach().appendTo('#defender')
-            $(this).attr("disabled", "disabled").css("background-color", "#b3201a"); //disable button, can't change defender after selection.
+            $(this).attr("disabled", "disabled").css("background-color", "#b3201a");
             maintainEnemy();
+            $(".attack").show();
+            $("#note1").hide();
         }
     })
     $(".attack").click(function () {
-        characters[defender].hp -= characters[player].ap;
-        characters[player].hp -= characters[defender].cap;
+        defenderHP -= playerAP;
+        playerHP -= characters[defender].cap;
         inProgressStats();
-        characters[player].ap += powerIncrement;
+        playerAP += characters[player].ap;
         gameStats();
     })
-    $(".restart").click(function(){
+    $(".restart").click(function () {
         gameReset();
     })
 });
